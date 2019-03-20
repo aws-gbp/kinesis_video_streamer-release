@@ -20,7 +20,6 @@
 #include <kinesis_video_msgs/KinesisVideoFrame.h>
 #include <kinesis_video_streamer/subscriber_callbacks.h>
 
-using namespace Aws::Utils::Logging;
 
 namespace Aws {
 namespace Kinesis {
@@ -68,7 +67,7 @@ public:
    * custom callbacks.
    * @return true on success
    */
-  bool SetDefaultCallbacks()
+  virtual bool SetDefaultCallbacks()
   {
     bool status = true;
     ImageTransportCallbackFn image_transport_callback;
