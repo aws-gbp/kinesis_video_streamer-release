@@ -14,8 +14,8 @@
  */
 #pragma once
 
-#include <ros/ros.h>
-#include <aws_ros1_common/sdk_utils/ros1_node_parameter_reader.h>
+#include <rclcpp/rclcpp.hpp>
+#include <aws_ros2_common/sdk_utils/ros2_node_parameter_reader.h>
 
 namespace Aws {
 namespace Kinesis {
@@ -29,21 +29,20 @@ namespace Kinesis {
  */
 constexpr uint32_t kDefaultNumberOfSpinnerThreads = 1;
 
-class StreamerNode : public ros::NodeHandle
+class StreamerNode : public rclcpp::Node
 {
 public:
-  StreamerNode(const std::string & ns);
-  
+  StreamerNode(const std::string & name,
+               const std::string & ns,
+               const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
+
   ~StreamerNode() = default;
-  
-  KinesisManagerStatus Initialize();
-  
+
+  KinesisManagerStatus Initialize(std::shared_ptr<Aws::Client::Ros2NodeParameterReader> parameter_reader,
+                                  std::shared_ptr<RosStreamSubscriptionInstaller> subscription_installer);
+
   KinesisManagerStatus InitializeStreamSubscriptions();
-  
-  void Spin();
-  
-  void set_subscription_installer(std::shared_ptr<RosStreamSubscriptionInstaller> subscription_installer);
-  
+
 private:
   std::shared_ptr<Aws::Client::ParameterReaderInterface> parameter_reader_;
   std::shared_ptr<RosStreamSubscriptionInstaller> subscription_installer_;
@@ -51,5 +50,5 @@ private:
   StreamDefinitionProvider stream_definition_provider_;
 };
 
-}  // namespace Kinesis
-}  // namespace Aws
+} // namespace Kinesis
+} // namespace Aws

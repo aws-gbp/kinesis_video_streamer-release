@@ -15,21 +15,22 @@
 #pragma once
 #include <image_transport/image_transport.h>
 #include <kinesis_manager/kinesis_stream_manager.h>
-#include <kinesis_video_msgs/KinesisVideoFrame.h>
+#include "kinesis_video_msgs/msg/kinesis_video_frame.hpp"
+#include "std_msgs/msg/string.hpp"
 
 namespace Aws {
 namespace Kinesis {
 
 /**
- * ROS1-specific callback that handles a kinesis_video_msgs::KinesisVideoFrame input and uses the
+ * ROS2-specific callback that handles a kinesis_video_msgs::KinesisVideoFrame input and uses the
  * stream manager to perform a PutFrame operation.
  * @param stream_manager
  * @param stream_name
  * @param frame_msg
  */
 void KinesisVideoFrameTransportCallback(
-  KinesisStreamManagerInterface & stream_manager, std::string stream_name,
-  const kinesis_video_msgs::KinesisVideoFrame::ConstPtr & frame_msg);
+    KinesisStreamManagerInterface & stream_manager, std::string stream_name,
+    const kinesis_video_msgs::msg::KinesisVideoFrame::ConstSharedPtr frame_msg);
 /**
  * This callback uses the above KinesisVideoFrameTransportCallback, then fetches and publishes the
  * analysis results from AWS Rekognition.
@@ -39,9 +40,9 @@ void KinesisVideoFrameTransportCallback(
  * @param publisher
  */
 void RekognitionEnabledKinesisVideoFrameTransportCallback(
-  KinesisStreamManagerInterface & stream_manager, std::string stream_name,
-  const kinesis_video_msgs::KinesisVideoFrame::ConstPtr & frame_msg,
-  const ros::Publisher & publisher);
+    KinesisStreamManagerInterface & stream_manager, std::string stream_name,
+    const kinesis_video_msgs::msg::KinesisVideoFrame::ConstSharedPtr frame_msg,
+    const rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher);
 /**
  * ROS1-specific callback that handles a sensor_msgs::Image input and uses the stream manager
  *  to perform a PutFrame operation.
@@ -50,7 +51,8 @@ void RekognitionEnabledKinesisVideoFrameTransportCallback(
  * @param image
  */
 void ImageTransportCallback(const KinesisStreamManagerInterface & stream_manager,
-                            std::string stream_name, const sensor_msgs::ImageConstPtr & image);
+                            std::string stream_name,
+                            const sensor_msgs::msg::Image::ConstSharedPtr image);
 
-}  // namespace Kinesis
-}  // namespace Aws
+} // namespace Kinesis
+} // namespace Aws

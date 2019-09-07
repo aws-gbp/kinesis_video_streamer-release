@@ -1,27 +1,30 @@
-<?xml version="1.0"?>
+<?xml version='1.0' encoding='utf-8'?>
 <package format="3">
-  <name>kinesis_video_streamer</name>
-  <version>2.0.2</version>
+ <name>kinesis_video_streamer</name>
+  <version>3.0.0</version>
   <description>Kinesis Video Streams producer node</description>
-  <url>http://wiki.ros.org/kinesis_video_streamer</url>
 
   <author email="ros-contributions@amazon.com">AWS RoboMaker</author>
   <maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
-
   <license>Apache 2.0</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rmw_implementation</buildtool_depend>
+  <build_depend>aws_common</build_depend>
+  <build_depend>aws_ros2_common</build_depend>
+  <build_depend>kinesis_manager</build_depend>
+  <build_depend>rclcpp</build_depend>
+  <build_depend>kinesis_video_msgs</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>rmw_implementation</build_depend>
+  <exec_depend>rmw_implementation</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_cmake_gmock</test_depend>
 
-  <depend>aws_common</depend>
-  <depend>aws_ros1_common</depend>
-  <depend>kinesis_manager</depend>
-  <depend>roscpp</depend>
-  <depend>kinesis_video_msgs</depend>
-  <depend>image_transport</depend>
-  <depend>std_msgs</depend>
-
-  <test_depend>gtest</test_depend>
-  <test_depend>google-mock</test_depend>
-  <test_depend>rostest</test_depend>
-  <test_depend>rostopic</test_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>
