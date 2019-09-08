@@ -1,3 +1,28 @@
+## kinesis_video_streamer (dashing) - 3.0.0-2
+
+The packages in the `kinesis_video_streamer` repository were released into the `dashing` distro by running `/usr/bin/bloom-release -t dashing -r dashing kinesis_video_streamer` on `Sun, 08 Sep 2019 18:59:38 -0000`
+
+These packages were released:
+- `kinesis_video_msgs`
+- `kinesis_video_streamer`
+
+Version of package(s) in repository `kinesis_video_streamer`:
+
+- upstream repository: https://github.com/aws-robotics/kinesisvideo-ros2.git
+- release repository: https://github.com/aws-gbp/kinesis_video_streamer-release.git
+- rosdistro version: `3.0.0-1`
+- old version: `3.0.0-1`
+- new version: `3.0.0-2`
+
+Versions of tools used:
+
+- bloom version: `0.8.0`
+- catkin_pkg version: `0.4.13`
+- rosdep version: `0.15.2`
+- rosdistro version: `0.7.4`
+- vcstools version: `0.1.42`
+
+
 ## kinesis_video_streamer (dashing) - 3.0.0-1
 
 The packages in the `kinesis_video_streamer` repository were released into the `dashing` distro by running `/home/ANT.AMAZON.COM/miaofei/.local/bin/bloom-release kinesis_video_streamer --track dashing --rosdistro dashing -e` on `Sat, 07 Sep 2019 00:10:46 -0000`
