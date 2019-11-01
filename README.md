@@ -1,6 +1,5 @@
 # kinesis_video_streamer
 
-**Note: this repository is under active development. The package provided here is a release candidate; the API may change without notice and no support is provided for it at the moment.**
 
 ## Overview
 The Kinesis Video Streams ROS package enables robots to stream video to the cloud for analytics, playback, and archival use. Out of the box, the nodes provided make it possible to encode & stream image data (e.g. video feeds and LIDAR scans)
@@ -37,10 +36,11 @@ The source code is released under [Apache 2.0].
 
 ### Build status
 
-* Travis CI: [![Build Status](https://travis-ci.org/aws-robotics/kinesisvideo-ros2.svg?branch=master)](https://travis-ci.org/aws-robotics/kinesisvideo-ros2)
+* Travis CI:
+    * "master" branch [![Build Status](https://travis-ci.org/aws-robotics/kinesisvideo-ros2.svg?branch=master)](https://travis-ci.org/aws-robotics/kinesisvideo-ros2/branches)
+    * "release-latest" branch [![Build Status](https://travis-ci.org/aws-robotics/kinesisvideo-ros2.svg?branch=release-latest)](https://travis-ci.org/aws-robotics/kinesisvideo-ros2/branches)
  * ROS build farm:
-   * v1.0.0:
-     * WIP
+   * ROS Dashing @ u18.04 Bionic [![Build Status](http://build.ros2.org/job/Dbin_uB64__kinesis_video_streamer__ubuntu_bionic_amd64__binary/badge/icon)](http://build.ros2.org/job/Dbin_uB64__kinesis_video_streamer__ubuntu_bionic_amd64__binary)
 
 ## Installation
 
@@ -60,16 +60,17 @@ For [Amazon Rekognition] integration, the user will also need permissions for th
 - `kinesis:GetRecords`
 
 ### Building from Source
-Create a ROS workspace and a source directory
+
+To build from source you'll need to create a new workspace, clone and checkout the latest release branch of this repository, install all the dependencies, and compile. If you need the latest development features you can clone from the `master` branch instead of the latest release branch. While we guarantee the release branches are stable, __the `master` should be considered to have an unstable build__ due to ongoing development. 
+
+- Create a ROS workspace and a source directory
 
     mkdir -p ~/ros-workspace/src
-
-To build from source, clone the latest version from master branch and compile the package
 
 - Clone the package into the source directory
 
         cd ~/ros-workspace/src
-        git clone https://github.com/aws-robotics/kinesisvideo-ros2.git
+        git clone https://github.com/aws-robotics/kinesisvideo-ros2.git -b release-latest
 
 - If this package has not been released yet, also fetch unreleased dependencies:
 
@@ -106,8 +107,8 @@ To build from source, clone the latest version from master branch and compile th
 3. Run:
   - `ros2 launch kinesis_video_streamer kinesis_video_streamer.launch.py`
 4. Example: running on a Raspberry Pi
-  - `ros2 run `[`raspicam2`]` raspicam2_node __params:=`ros2 pkg prefix raspicam2`/share/raspicam2/cfg/params.yaml`
-  - `ros2 launch h264_video_encoder h264_video_encoder_launch.py `
+  - `ros2 run `[`raspicam2`]` raspicam2_node __params:=$(ros2 pkg prefix raspicam2)/share/raspicam2/cfg/params.yaml`
+  - `ros2 launch h264_video_encoder h264_video_encoder_launch.py`
   - `ros2 launch kinesis_video_streamer kinesis_video_streamer.launch.py`
   - Log into your AWS Console to see the availabe Kinesis Video stream.
     - For other platforms, replace step 1 with an equivalent command to launch your camera node. Reconfigure the topic names accordingly.
