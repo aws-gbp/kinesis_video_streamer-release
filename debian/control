@@ -1,0 +1,12 @@
+Source: ros-kinetic-kinesis-video-msgs
+Section: misc
+Priority: optional
+Maintainer: AWS RoboMaker <ros-contributions@amazon.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-diagnostic-msgs, ros-kinetic-message-generation
+Homepage: http://wiki.ros.org/kinesis_video_msgs
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-kinesis-video-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-diagnostic-msgs, ros-kinetic-message-runtime
+Description: Messages for transmitting video frames to Kinesis Video Streams
