@@ -1,0 +1,12 @@
+Source: ros-melodic-kinesis-video-streamer
+Section: misc
+Priority: optional
+Maintainer: AWS RoboMaker <ros-contributions@amazon.com>
+Build-Depends: debhelper (>= 9.0.0), google-mock, libgtest-dev, ros-melodic-aws-common, ros-melodic-aws-ros1-common, ros-melodic-catkin, ros-melodic-image-transport, ros-melodic-kinesis-manager, ros-melodic-kinesis-video-msgs, ros-melodic-roscpp, ros-melodic-rostest, ros-melodic-rostopic, ros-melodic-std-msgs
+Homepage: http://wiki.ros.org/kinesis_video_streamer
+Standards-Version: 3.9.2
+
+Package: ros-melodic-kinesis-video-streamer
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-aws-common, ros-melodic-aws-ros1-common, ros-melodic-image-transport, ros-melodic-kinesis-manager, ros-melodic-kinesis-video-msgs, ros-melodic-roscpp, ros-melodic-std-msgs
+Description: Kinesis Video Streams producer node
