@@ -1,3 +1,28 @@
+## kinesis_video_streamer (melodic) - 2.0.4-1
+
+The packages in the `kinesis_video_streamer` repository were released into the `melodic` distro by running `/usr/local/bin/bloom-release kinesis_video_streamer --track melodic --rosdistro melodic -e` on `Thu, 17 Feb 2022 06:52:12 -0000`
+
+These packages were released:
+- `kinesis_video_msgs`
+- `kinesis_video_streamer`
+
+Version of package(s) in repository `kinesis_video_streamer`:
+
+- upstream repository: https://github.com/jikawa-az/kinesisvideo-ros1.git
+- release repository: https://github.com/aws-gbp/kinesis_video_streamer-release.git
+- rosdistro version: `2.0.3-1`
+- old version: `2.0.3-1`
+- new version: `2.0.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.20.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## kinesis_video_streamer (melodic) - 2.0.3-1
 
 The packages in the `kinesis_video_streamer` repository were released into the `melodic` distro by running `/usr/bin/bloom-release kinesis_video_streamer --track melodic --rosdistro melodic -e` on `Wed, 02 Sep 2020 18:20:32 -0000`
